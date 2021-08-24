@@ -1,0 +1,7 @@
+#ContainerPacMan {
+    display: grid;
+    grid-template-columns:repeat(19, 40px);
+    grid-template-rows:repeat(22, 40px) ;
+    
+}
+
