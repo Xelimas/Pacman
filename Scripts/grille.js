@@ -36,21 +36,21 @@ let tableau = [
         if (tableau[lig][col] == 0) {
           let container = document.getElementById("ContainerPacMan");
           image = document.createElement("img");
-          
+          image.style.gridArea = (lig+1) +"/"+(col+1); 
           image.src = "./img/mur.gif";
           container.appendChild(image);
         }
         if (tableau[lig][col] == 1) {
           let container = document.getElementById("ContainerPacMan");
           image = document.createElement("img");
-          
+          image.style.gridArea = (lig+1) +"/"+(col+1); 
           image.src = "./img/sol.gif";
           container.appendChild(image);
         }
         if (tableau[lig][col] == 2) {
           let container = document.getElementById("ContainerPacMan");
           image = document.createElement("img");
-          
+          image.style.gridArea = (lig+1) +"/"+(col+1); 
           image.src = "./img/bonbon.gif";
           container.appendChild(image);
         }
