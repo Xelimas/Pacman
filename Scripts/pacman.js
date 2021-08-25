@@ -53,31 +53,25 @@ function bougePacman() {
 
 function collisionPacman() {
   if (pacman.direction == 0 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
-    
     pacman.x -= 1;
   }
   if (pacman.direction == 2 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
-    
     pacman.x += 1;
   }
   if (pacman.direction == 3 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
-    
     pacman.y += 1;
   }
   if (pacman.direction == 1 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
-    
     pacman.y -= 1;
   }
 }
 
 function mangerBonbon() {
-  
   if (tableau[pacman.y - 1][pacman.x - 1] == 2) {
-    tableau[pacman.y - 1][pacman.x - 1] = 1
+    tableau[pacman.y - 1][pacman.x - 1] = 1;
     score = document.getElementById("score");
     points += 10;
-    score.innerHTML = "Score : "+ points;
-    
+    score.innerHTML = "Score : " + points;
   }
 }
 
@@ -92,10 +86,32 @@ function sortiePlateau() {
   }
 }
 
-function testGagné(){
+function testGagné() {
   if (points == 1900) {
     score = document.getElementById("score");
     score.innerHTML = "Bien joué ";
   }
 }
 
+function defaite() {
+  if (
+    tableau[pacman.y][pacman.x] == tableau[fantomeOrange.y][fantomeOrange.x]) {
+    score = document.getElementById("score");
+    score.innerHTML = "Perdu ";
+  }
+  if (
+    tableau[pacman.y][pacman.x] == tableau[fantomeRouge.y][fantomeRouge.x]) {
+    score = document.getElementById("score");
+    score.innerHTML = "Perdu ";
+  }
+  if (
+    tableau[pacman.y][pacman.x] == tableau[fantomeVert.y][fantomeVert.x]) {
+    score = document.getElementById("score");
+    score.innerHTML = "Perdu ";
+  }
+  if (
+    tableau[pacman.y][pacman.x] == tableau[fantomebleu.y][fantomebleu.x]) {
+    score = document.getElementById("score");
+    score.innerHTML = "Perdu ";
+  }
+}

@@ -1,5 +1,5 @@
-let fantomeOrange = { x: 10, y: 11, direction: 0 };
-let fantomebleu = { x: 10, y: 10, direction: 1 };
+let fantomeOrange = { x: 10, y: 10, direction: 0 };
+let fantomebleu = { x: 10, y: 9, direction: 1 };
 let fantomeRouge = { x: 10, y: 13, direction: 2 };
 let fantomeVert = { x: 10, y: 12, direction: 3 };
 
@@ -104,23 +104,23 @@ function afficherFantomes() {
     if (fantomeRouge.direction == 0 && tableau[fantomeRouge.y - 1][fantomeRouge.x - 1] == 0) {
       
         fantomeRouge.x -= 1;
-        fantomeRouge.direction = Math.random() * 4;
+        fantomeRouge.direction = Math.floor(Math.random() * 4);
 
     }
     if (fantomeRouge.direction == 2 && tableau[fantomeRouge.y - 1][fantomeRouge.x - 1] == 0) {
       
         fantomeRouge.x += 1;
-        fantomeRouge.direction = Math.random() * 4;
+        fantomeRouge.direction = Math.floor(Math.random() * 4);
     }
     if (fantomeRouge.direction == 3 && tableau[fantomeRouge.y - 1][fantomeRouge.x - 1] == 0) {
       
         fantomeRouge.y += 1;
-        fantomeRouge.direction = Math.random() * 4;
+        fantomeRouge.direction = Math.floor(Math.random() * 4);
     }
     if (fantomeRouge.direction == 1 && tableau[fantomeRouge.y - 1][fantomeRouge.x - 1] == 0) {
       
         fantomeRouge.y -= 1;
-        fantomeRouge.direction = Math.random() * 4;
+        fantomeRouge.direction = Math.floor(Math.random() * 4);
     }
   }
 
@@ -128,64 +128,105 @@ function afficherFantomes() {
     if (fantomeVert.direction == 0 && tableau[fantomeVert.y - 1][fantomeVert.x - 1] == 0) {
       
         fantomeVert.x -= 1;
-        fantomeVert.direction = Math.random() * 4;
+        fantomeVert.direction = Math.floor(Math.random() * 4); 
     }
     if (fantomeVert.direction == 2 && tableau[fantomeVert.y - 1][fantomeVert.x - 1] == 0) {
       
         fantomeVert.x += 1;
-        fantomeVert.direction = Math.random() * 4;
+        fantomeVert.direction = Math.floor(Math.random() * 4);
     }
     if (fantomeVert.direction == 3 && tableau[fantomeVert.y - 1][fantomeVert.x - 1] == 0) {
       
         fantomeVert.y += 1;
-        fantomeVert.direction = Math.random() * 4;
+        fantomeVert.direction = Math.floor(Math.random() * 4);
     }
     if (fantomeVert.direction == 1 && tableau[fantomeVert.y - 1][fantomeVert.x - 1] == 0) {
       
         fantomeVert.y -= 1;
-        fantomeVert.direction = Math.random() * 4;
+        fantomeVert.direction = Math.floor(Math.random() * 4);
     }
   }
   function collisionfantomebleu() {
     if (fantomebleu.direction == 0 && tableau[fantomebleu.y - 1][fantomebleu.x - 1] == 0) {
       
         fantomebleu.x -= 1;
-        fantomeRouge.direction = Math.random() * 4;
+        fantomebleu.direction = Math.floor(Math.random() * 4);
     }
     if (fantomebleu.direction == 2 && tableau[fantomebleu.y - 1][fantomebleu.x - 1] == 0) {
       
         fantomebleu.x += 1;
-        fantomeRouge.direction = Math.random() * 4;
+        fantomebleu.direction = Math.floor(Math.random() * 4);
     }
     if (fantomebleu.direction == 3 && tableau[fantomebleu.y - 1][fantomebleu.x - 1] == 0) {
       
         fantomebleu.y += 1;
+        fantomebleu.direction = Math.floor(Math.random() * 4);
     }
     if (fantomebleu.direction == 1 && tableau[fantomebleu.y - 1][fantomebleu.x - 1] == 0) {
       
         fantomebleu.y -= 1;
-        fantomeRouge.direction = Math.random() * 4;
+        fantomebleu.direction = Math.floor(Math.random() * 4);
     }
   }
   function collisionfantomeOrange() {
     if (fantomeOrange.direction == 0 && tableau[fantomeOrange.y - 1][fantomeOrange.x - 1] == 0) {
       
         fantomeOrange.x -= 1;
-        fantomeRouge.direction = Math.random() * 4;
+        fantomeOrange.direction = Math.floor(Math.random() * 4);
     }
     if (fantomeOrange.direction == 2 && tableau[fantomeOrange.y - 1][fantomeOrange.x - 1] == 0) {
       
         fantomeOrange.x += 1;
-        fantomeRouge.direction = Math.random() * 4;
+        fantomeOrange.direction = Math.floor(Math.random() * 4);
     }
     if (fantomeOrange.direction == 3 && tableau[fantomeOrange.y - 1][fantomeOrange.x - 1] == 0) {
       
         fantomeOrange.y += 1;
-        fantomeRouge.direction = Math.random() * 4;
+        fantomeOrange.direction = Math.floor(Math.random() * 4);
     }
     if (fantomeOrange.direction == 1 && tableau[fantomeOrange.y - 1][fantomeOrange.x - 1] == 0) {
       
         fantomeOrange.y -= 1;
-        fantomeRouge.direction = Math.random() * 4;
+        fantomeOrange.direction = Math.floor(Math.random() * 4);
+    }
+  }
+  function sortiePlateaufantomeRouge() {
+    if (fantomeRouge.direction == 0 && fantomeRouge.x - 1 == 19) {
+        fantomeRouge.x = 0;
+      console.log("sortie droite");
+    }
+    if (fantomeRouge.direction == 2 && fantomeRouge.x - 1 == 0) {
+        fantomeRouge.x = 19;
+      console.log("sortie gauche");
+    }
+  }
+  function sortiePlateaufantomeVert() {
+    if (fantomeVert.direction == 0 && fantomeVert.x - 1 == 19) {
+        fantomeVert.x = 0;
+      console.log("sortie droite");
+    }
+    if (fantomeVert.direction == 2 && fantomeVert.x - 1 == 0) {
+        fantomeVert.x = 19;
+      console.log("sortie gauche");
+    }
+  }
+  function sortiePlateaufantomebleu() {
+    if (fantomebleu.direction == 0 && fantomebleu.x - 1 == 19) {
+        fantomebleu.x = 0;
+      console.log("sortie droite");
+    }
+    if (fantomebleu.direction == 2 && fantomebleu.x - 1 == 0) {
+        fantomebleu.x = 19;
+      console.log("sortie gauche");
+    }
+  }
+  function sortiePlateaufantomeRouge() {
+    if (fantomeOrange.direction == 0 && fantomeOrange.x - 1 == 19) {
+        fantomeOrange.x = 0;
+      console.log("sortie droite");
+    }
+    if (fantomeOrange.direction == 2 && fantomeOrange.x - 1 == 0) {
+        fantomeOrange.x = 19;
+      console.log("sortie gauche");
     }
   }

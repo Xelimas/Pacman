@@ -13,7 +13,12 @@ function tourDeJeux() {
   collisionfantomebleu();
   collisionfantomeOrange();
   sortiePlateau();
+  sortiePlateaufantomeRouge();
+  sortiePlateaufantomeVert();
+  sortiePlateaufantomebleu();
+  sortiePlateaufantomeRouge();
   mangerBonbon();
+  defaite();
   testGagné();
 }
-setInterval(tourDeJeux, 600);
+setInterval(tourDeJeux, 700);
