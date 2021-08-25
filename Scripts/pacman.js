@@ -33,23 +33,43 @@ function changeDir(e) {
 }
 
 function bougePacman() {
+  //gauche / q
   if (pacman.direction == 2) {
     pacman.x -= 1;
   }
+  //haut / z
   if (pacman.direction == 3) {
     pacman.y -= 1;
   }
+  //droite / d
   if (pacman.direction == 0) {
     pacman.x += 1;
   }
+  //bas / s
   if (pacman.direction == 1) {
     pacman.y += 1;
   }
+}
 
-  if (tableau[pacman.x][pacman.y] !== 0 && tableau[pacman.x][pacman.y] == 2) {
+function collisionPacman() {
+  if (pacman.direction == 0 && tableau[pacman.y-1][pacman.x-1] == 0) {
     console.log("mur");
     pacman.x -= 1;
+  } 
+  if (pacman.direction == 2 && tableau[pacman.y-1][pacman.x-1] == 0) {
+    console.log("mur");
+    pacman.x += 1;
   }
+  if (pacman.direction == 3 && tableau[pacman.y-1][pacman.x-1] == 0) {
+    console.log("mur");
+    pacman.y += 1;
+  } 
+  if (pacman.direction == 1 && tableau[pacman.y-1][pacman.x-1] == 0) {
+    console.log("mur");
+    pacman.y -= 1;
+  } 
+
+  
   // if (tableau[pacman.x][pacman.y] !== 2) {
   //     console.log("sol");
   //     let container = document.getElementById("ContainerPacMan");
