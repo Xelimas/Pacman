@@ -3,5 +3,6 @@ function tourDeJeux() {
   afficherPacman();
   bougePacman();
   collisionPacman();
+  sortiePlateau();
 }
 setInterval(tourDeJeux, 500);

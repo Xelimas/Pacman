@@ -1,4 +1,4 @@
-let pacman = { x: 2, y: 2, direction: 0 };
+let pacman = { x: 13, y: 11, direction: 0 };
 
 /**
  * Fonction permettant d'afficher le pacman sur le plateau
@@ -52,24 +52,23 @@ function bougePacman() {
 }
 
 function collisionPacman() {
-  if (pacman.direction == 0 && tableau[pacman.y-1][pacman.x-1] == 0) {
+  if (pacman.direction == 0 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
     console.log("mur");
     pacman.x -= 1;
-  } 
-  if (pacman.direction == 2 && tableau[pacman.y-1][pacman.x-1] == 0) {
+  }
+  if (pacman.direction == 2 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
     console.log("mur");
     pacman.x += 1;
   }
-  if (pacman.direction == 3 && tableau[pacman.y-1][pacman.x-1] == 0) {
+  if (pacman.direction == 3 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
     console.log("mur");
     pacman.y += 1;
-  } 
-  if (pacman.direction == 1 && tableau[pacman.y-1][pacman.x-1] == 0) {
+  }
+  if (pacman.direction == 1 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
     console.log("mur");
     pacman.y -= 1;
-  } 
+  }
 
-  
   // if (tableau[pacman.x][pacman.y] !== 2) {
   //     console.log("sol");
   //     let container = document.getElementById("ContainerPacMan");
@@ -79,4 +78,15 @@ function collisionPacman() {
   //     container.appendChild(image);
 
   // }
+}
+
+function sortiePlateau() {
+  if (pacman.direction == 0 && pacman.x-1 == 19) {
+    pacman.x = 0;
+    console.log("sortie droite");
+  }
+if (pacman.direction == 2 && pacman.x-1 == 0) {
+  pacman.x = 19;
+    console.log("sortie gauche");
+}
 }
