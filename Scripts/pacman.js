@@ -1,5 +1,5 @@
-let pacman = { x: 13, y: 11, direction: 0 };
-
+let pacman = { x: 2, y: 2, direction: 0 };
+let points = 0;
 /**
  * Fonction permettant d'afficher le pacman sur le plateau
  */
@@ -53,40 +53,49 @@ function bougePacman() {
 
 function collisionPacman() {
   if (pacman.direction == 0 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
-    console.log("mur");
+    
     pacman.x -= 1;
   }
   if (pacman.direction == 2 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
-    console.log("mur");
+    
     pacman.x += 1;
   }
   if (pacman.direction == 3 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
-    console.log("mur");
+    
     pacman.y += 1;
   }
   if (pacman.direction == 1 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
-    console.log("mur");
+    
     pacman.y -= 1;
   }
+}
 
-  // if (tableau[pacman.x][pacman.y] !== 2) {
-  //     console.log("sol");
-  //     let container = document.getElementById("ContainerPacMan");
-  //     image = document.createElement("img");
-  //     image.src = "./img/sol.gif";
-  //     image.style.gridArea = pacman.y + "/" + pacman.x;
-  //     container.appendChild(image);
-
-  // }
+function mangerBonbon() {
+  
+  if (tableau[pacman.y - 1][pacman.x - 1] == 2) {
+    tableau[pacman.y - 1][pacman.x - 1] = 1
+    score = document.getElementById("score");
+    points += 10;
+    score.innerHTML = "Score : "+ points;
+    
+  }
 }
 
 function sortiePlateau() {
-  if (pacman.direction == 0 && pacman.x-1 == 19) {
+  if (pacman.direction == 0 && pacman.x - 1 == 19) {
     pacman.x = 0;
     console.log("sortie droite");
   }
-if (pacman.direction == 2 && pacman.x-1 == 0) {
-  pacman.x = 19;
+  if (pacman.direction == 2 && pacman.x - 1 == 0) {
+    pacman.x = 19;
     console.log("sortie gauche");
+  }
 }
+
+function testGagné(){
+  if (points == 1900) {
+    score = document.getElementById("score");
+    score.innerHTML = "Bien joué ";
+  }
 }
+

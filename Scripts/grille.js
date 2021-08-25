@@ -24,7 +24,6 @@ let tableau = [
   ];
   
 
-
 /**
  * Fonction permettant de creer la grille du pacman
  */
@@ -48,9 +47,10 @@ let tableau = [
           container.appendChild(image);
         }
         if (tableau[lig][col] == 2) {
+      
           let container = document.getElementById("ContainerPacMan");
           image = document.createElement("img");
-          image.style.gridArea = (lig+1) +"/"+(col+1); 
+          image.style.gridArea = (lig+1) +"/"+(col+1);
           image.src = "./img/bonbon.gif";
           container.appendChild(image);
         }

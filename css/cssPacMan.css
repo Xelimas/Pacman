@@ -6,3 +6,8 @@
     
 }
 
+#ContainerPacMan h2{
+    display: grid;
+    grid-area: 1 / 21;
+}
+

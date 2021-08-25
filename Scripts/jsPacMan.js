@@ -4,5 +4,7 @@ function tourDeJeux() {
   bougePacman();
   collisionPacman();
   sortiePlateau();
+  mangerBonbon();
+  testGagné();
 }
-setInterval(tourDeJeux, 500);
+setInterval(tourDeJeux, 600);
