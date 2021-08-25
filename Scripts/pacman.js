@@ -54,6 +54,7 @@ function bougePacman() {
 function collisionPacman() {
   if (pacman.direction == 0 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
     pacman.x -= 1;
+    
   }
   if (pacman.direction == 2 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
     pacman.x += 1;
@@ -95,24 +96,12 @@ function testGagné() {
 }
 
 function defaite() {
-  if (pacman.y == fantomeOrange.y && pacman.x == fantomeOrange.x) {
+  for (let ghost = 0; ghost <= 3; ghost++) {
+  if (pacman.y == fantome[ghost].y && pacman.x == fantome[ghost].x) {
     score = document.getElementById("score");
     score.innerHTML = "Perdu ";
     clearInterval(value);
   }
-  if (pacman.y == fantomeRouge.y && pacman.x == fantomeRouge.x) {
-    score = document.getElementById("score");
-    score.innerHTML = "Perdu ";
-    clearInterval(value);
-  }
-  if (pacman.y == fantomeVert.y && pacman.x == fantomeVert.x) {
-    score = document.getElementById("score");
-    score.innerHTML = "Perdu ";
-    clearInterval(value);
-  }
-  if (pacman.y == fantomebleu.y && pacman.x == fantomebleu.x) {
-    score = document.getElementById("score");
-    score.innerHTML = "Perdu ";
-    clearInterval(value);
-  }
+  
+}
 }
