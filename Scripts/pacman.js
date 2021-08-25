@@ -90,28 +90,29 @@ function testGagné() {
   if (points == 1900) {
     score = document.getElementById("score");
     score.innerHTML = "Bien joué ";
+    clearInterval(value);
   }
 }
 
 function defaite() {
-  if (
-    tableau[pacman.y][pacman.x] == tableau[fantomeOrange.y][fantomeOrange.x]) {
+  if (pacman.y == fantomeOrange.y && pacman.x == fantomeOrange.x) {
     score = document.getElementById("score");
     score.innerHTML = "Perdu ";
+    clearInterval(value);
   }
-  if (
-    tableau[pacman.y][pacman.x] == tableau[fantomeRouge.y][fantomeRouge.x]) {
+  if (pacman.y == fantomeRouge.y && pacman.x == fantomeRouge.x) {
     score = document.getElementById("score");
     score.innerHTML = "Perdu ";
+    clearInterval(value);
   }
-  if (
-    tableau[pacman.y][pacman.x] == tableau[fantomeVert.y][fantomeVert.x]) {
+  if (pacman.y == fantomeVert.y && pacman.x == fantomeVert.x) {
     score = document.getElementById("score");
     score.innerHTML = "Perdu ";
+    clearInterval(value);
   }
-  if (
-    tableau[pacman.y][pacman.x] == tableau[fantomebleu.y][fantomebleu.x]) {
+  if (pacman.y == fantomebleu.y && pacman.x == fantomebleu.x) {
     score = document.getElementById("score");
     score.innerHTML = "Perdu ";
+    clearInterval(value);
   }
 }

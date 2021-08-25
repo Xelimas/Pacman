@@ -18,7 +18,7 @@ function tourDeJeux() {
   sortiePlateaufantomebleu();
   sortiePlateaufantomeRouge();
   mangerBonbon();
-  defaite();
   testGagné();
+  defaite();
 }
-setInterval(tourDeJeux, 700);
+var value = setInterval(tourDeJeux, 700);
