@@ -1,107 +1,92 @@
-let pacman = { x: 2, y: 2, direction: 0 };
 let points = 0;
-/**
- * Fonction permettant d'afficher le pacman sur le plateau
- */
-function afficherPacman() {
-  let container = document.getElementById("ContainerPacMan");
-  image = document.createElement("img");
-  image.src = "./img/pacman4.gif";
-  image.style.gridArea = pacman.y + "/" + pacman.x;
-  container.appendChild(image);
-}
+let score;
+class PacmanClasse {
+  x;
+  y;
+  direction;
+  constructor(x, y, direction) {
+    this.x = x;
+    this.y = y;
+    this.direction = direction;
+  }
+  /**
+   * Fonction permettant d'afficher le pacman sur le plateau
+   */
+  afficherPacman() {
+    let container = document.getElementById("ContainerPacMan");
+    let image = document.createElement("img");
+    image.src = "./img/pacman4.gif";
+    image.style.gridArea = this.y + "/" + this.x;
+    container.appendChild(image);
+  }
 
-document.body.addEventListener("keydown", changeDir);
+  bougePacman() {
+    //gauche / q
+    if (this.direction == 2) {
+      this.x -= 1;
+    }
+    //haut / z
+    if (this.direction == 3) {
+      this.y -= 1;
+    }
+    //droite / d
+    if (this.direction == 0) {
+      this.x += 1;
+    }
+    //bas / s
+    if (this.direction == 1) {
+      this.y += 1;
+    }
+  }
 
-function changeDir(e) {
-  //gauche / q
-  if (e.code == "KeyA") {
-    pacman.direction = 2;
+  collisionPacman() {
+    if (this.direction == 0 && tableau[this.y - 1][this.x - 1] == 0) {
+      this.x -= 1;
+    }
+    if (this.direction == 2 && tableau[this.y - 1][this.x - 1] == 0) {
+      this.x += 1;
+    }
+    if (this.direction == 3 && tableau[this.y - 1][this.x - 1] == 0) {
+      this.y += 1;
+    }
+    if (this.direction == 1 && tableau[this.y - 1][this.x - 1] == 0) {
+      this.y -= 1;
+    }
   }
-  //haut / z
-  else if (e.code == "KeyW") {
-    pacman.direction = 3;
-  }
-  //droite / d
-  else if (e.code == "KeyD") {
-    pacman.direction = 0;
-  }
-  //bas / s
-  else if (e.code == "KeyS") {
-    pacman.direction = 1;
-  }
-}
 
-function bougePacman() {
-  //gauche / q
-  if (pacman.direction == 2) {
-    pacman.x -= 1;
+  mangerBonbon() {
+    if (tableau[this.y - 1][this.x - 1] == 2) {
+      tableau[this.y - 1][this.x - 1] = 1;
+      let score = document.getElementById("score");
+      points += 10;
+      score.innerHTML = "Score : " + points;
+    }
   }
-  //haut / z
-  if (pacman.direction == 3) {
-    pacman.y -= 1;
-  }
-  //droite / d
-  if (pacman.direction == 0) {
-    pacman.x += 1;
-  }
-  //bas / s
-  if (pacman.direction == 1) {
-    pacman.y += 1;
-  }
-}
 
-function collisionPacman() {
-  if (pacman.direction == 0 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
-    pacman.x -= 1;
-    
+  sortiePlateau() {
+    if (this.direction == 0 && this.x - 1 == 19) {
+      this.x = 0;
+    }
+    if (this.direction == 2 && this.x - 1 == 0) {
+      this.x = 19;
+    }
   }
-  if (pacman.direction == 2 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
-    pacman.x += 1;
-  }
-  if (pacman.direction == 3 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
-    pacman.y += 1;
-  }
-  if (pacman.direction == 1 && tableau[pacman.y - 1][pacman.x - 1] == 0) {
-    pacman.y -= 1;
-  }
-}
 
-function mangerBonbon() {
-  if (tableau[pacman.y - 1][pacman.x - 1] == 2) {
-    tableau[pacman.y - 1][pacman.x - 1] = 1;
-    score = document.getElementById("score");
-    points += 10;
-    score.innerHTML = "Score : " + points;
+  testGagné() {
+    if (points == 1900) {
+      let score = document.getElementById("score");
+      score.innerHTML = "Score : " + points + "<br>" + " Bien joué !!";
+      clearInterval(value);
+    }
   }
-}
-
-function sortiePlateau() {
-  if (pacman.direction == 0 && pacman.x - 1 == 19) {
-    pacman.x = 0;
-    console.log("sortie droite");
-  }
-  if (pacman.direction == 2 && pacman.x - 1 == 0) {
-    pacman.x = 19;
-    console.log("sortie gauche");
-  }
-}
-
-function testGagné() {
-  if (points == 1900) {
-    score = document.getElementById("score");
-    score.innerHTML = "Bien joué ";
-    clearInterval(value);
-  }
-}
-
-function defaite() {
-  for (let ghost = 0; ghost <= 3; ghost++) {
-  if (pacman.y == fantome[ghost].y && pacman.x == fantome[ghost].x) {
-    score = document.getElementById("score");
-    score.innerHTML = "Perdu ";
-    clearInterval(value);
-  }
-  
-}
+/*
+  defaite() {
+    for (let ghost = 0; ghost <= 3; ghost++) {
+      if (this.y == fantome[ghost].y && this.x == fantome[ghost].x) {
+        score = document.getElementById("score");
+        score.innerHTML = "Vous avez Perdu !";
+        clearInterval(value);
+      }
+    }
+  }*/
 }
